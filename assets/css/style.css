@@ -1,0 +1,44 @@
+body {
+      background-image: url('../images/pool_blue.jpg');
+}
+
+.navbar {
+      padding-top: 15px;
+      padding-bottom: 15px;
+      border: 0;
+      border-radius: 0;
+      margin-bottom: 0;
+      font-size: 15px;
+      letter-spacing: 4px;
+      font-weight: bold;
+}
+
+.text {
+      color: white;
+      font-size: 25px;
+}
+
+.container-fluid {
+	margin-top: 60px;
+}
+
+.form-group {
+	font-size: 18px;
+}
+
+.form-control {
+	width: 80px;
+	height: 40px;
+}
+
+#query-result {
+	margin-top: 30px;
+}
+
+.weather {
+	font-size: 33px;
+}
+
+.temperature {
+	font-size: 20px;
+}
