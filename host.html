@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Splash!</title>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <script src="https://code.jquery.com/jquery.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Splash</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="host.html">Host Your Pool</a></li>
+        <li><a href="index.html">Find A Pool</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<form class="form-horizontal">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="address">Address:</label>
+    <div class="col-sm-10">
+      <input type="address" class="form-control" id="address" placeholder="Enter address">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">City, State:</label>
+    <div class="col-sm-10"> 
+      <input type="cityState" class="form-control" id="cityState" placeholder="Enter City, State">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="pwd">Max Number of Guests:</label>
+    <div class="col-sm-10"> 
+      <input class="form-control" id="numGuests" type="number" value="5">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="address">Times Available:</label>
+    <div class="col-sm-10">
+      <input type="poolTime" class="form-control" id="poolTime" placeholder="Enter Available Times Pool is Open">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="address">Salt Water or Chlorine:</label>
+    <div class="col-sm-10">
+      <input type="waterType" class="form-control" id="waterType" placeholder="Enter type of pool water">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="temperature">Pool Temperature:</label>
+    <div class="col-sm-10">
+      <input type="temperature" class="form-control" id="temperature" placeholder="Enter Pool Temperature">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="temperature">Cost Per Hour/Per Person:</label>
+    <div class="col-sm-10">
+      <input type="cost" class="form-control" id="cost" placeholder="Enter Cost Per Hour/Per Person">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="temperature">Comments:</label>
+    <div class="col-sm-10">
+      <textarea type="comments" class="form-control" id="comments" placeholder="Comments"></textarea>
+    </div>
+  </div>
+  <div class="form-group"> 
+    <div class="col-sm-offset-2 col-sm-10">
+      <button id="submit" type="button" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+</form>
+
+
+<script src="assets/javascript/code.js"></script>
+
+</body>
+
+</html>
