@@ -5,6 +5,24 @@ var location;
 var weather;
 var icon;
 
+function initMap() {
+	//300 atrium drive 
+	//Somerset, NJ
+  var myLatLng = {lat: 40.5354340, lng: -74.5212870};
+
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 4,
+    center: myLatLng
+  });
+
+  var marker = new google.maps.Marker({
+    position: myLatLng,
+    map: map,
+    icon: 'pool-icon.png',
+    title: 'Hello World!'
+  });
+}
+
 
 function getWeather(){
 	//var apiKey = "11e28d64554d3afa";
@@ -31,31 +49,11 @@ function getWeather(){
 	}); 
 }
 
-// $("#state").val('FL');
-// $("#city").val('Miami');
-
-
-/*function getMap(){
-	var queryURL = "http://maps.googleapis.com/maps/api/js?key=AIzaSyBPidPaBR5dgPFkxsPfkRvkLE1fFp48FX8";
-	$.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-	  .done(function(response) {
-	    console.log(response);
-
-	});
-}
-
-getMap();*/
 
 function getMap() {
-  var mapCanvas = document.getElementById("map");
-  var mapOptions = {
-    center: new google.maps.LatLng(51.5, -0.2), 
-    zoom: 10
-  }
-  var map = new google.maps.Map(mapCanvas, mapOptions);
+	var div = $('<div>').attr('id', 'map');
+	$('body').append(div);
+	initMap();
 }
 
 
