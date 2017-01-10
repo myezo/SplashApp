@@ -42,3 +42,8 @@ body {
 .temperature {
 	font-size: 20px;
 }
+
+#map {
+  height: 500px;
+  width: 500px;
+}
