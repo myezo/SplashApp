@@ -41,6 +41,7 @@
 	font-size: 20px;
 }
 
+<<<<<<< HEAD
 .form-horizontal{
       margin: 0 auto;
       width: 80%;
@@ -64,4 +65,9 @@
 #submit{
       width: 90px;
       height: 40px;
+=======
+#map {
+  height: 500px;
+  width: 500px;
+>>>>>>> 490a3053faf36d786afa1c1a19134067bf9376b7
 }

@@ -23,7 +23,7 @@ function initMap() {
   var myLatLng = {lat: 40.5354340, lng: -74.5212870};
 
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 10,
+    zoom: 4,
     center: myLatLng
   });
 
@@ -37,28 +37,28 @@ function initMap() {
 
 
 function getWeather(){
-	//var apiKey = "11e28d64554d3afa";
-	var queryURL = "http://api.wunderground.com/api/11e28d64554d3afa/conditions/q/" + state + "/" +city+".json";
-	$.ajax({
+  //var apiKey = "11e28d64554d3afa";
+  var queryURL = "http://api.wunderground.com/api/11e28d64554d3afa/conditions/q/" + state + "/" +city+".json";
+  $.ajax({
         url: queryURL,
         method: "GET"
       })
-	  .done(function(response) {
-	    console.log(response);
+    .done(function(response) {
+      console.log(response);
 
-	    icon = response.current_observation.icon_url;
-	    temperature = response.current_observation.dewpoint_string;
-	    weather = response.current_observation.weather;
-	    console.log(weather);
-	    
-	    console.log(temperature);
-	   
-	    //$('#location').text(location);
-	    $('#icon').text(icon);
-	    $('#weather').text(weather);
-	    $('#temperature').text("Temperature: " + temperature);
+      icon = response.current_observation.icon_url;
+      temperature = response.current_observation.dewpoint_string;
+      weather = response.current_observation.weather;
+      console.log(weather);
+      
+      console.log(temperature);
+     
+      //$('#location').text(location);
+      $('#icon').text(icon);
+      $('#weather').text(weather);
+      $('#temperature').text("Temperature: " + temperature);
 
-	}); 
+  }); 
 }
 
 
@@ -105,19 +105,19 @@ $("#search").on("click", function() {
 
 
 $('#submit').on("click", function(){
-	
-	var address;
-	var cityState;
-	var numGuests;
-	var times;
-	var water;
-	var poolTemp;
-	var cost;
-	var comments;
-	var latitude;
-	var longitude;
+  
+  var address;
+  var cityState;
+  var numGuests;
+  var times;
+  var water;
+  var poolTemp;
+  var cost;
+  var comments;
+  var latitude;
+  var longitude;
 
-	address = $("#address").val().trim();
+  address = $("#address").val().trim();
     cityState = $("#cityState").val().trim();
     numGuests = $("#numGuests").val().trim();
     times = $("#poolTime").val().trim();
@@ -138,17 +138,17 @@ $('#submit').on("click", function(){
     console.log(comments);
 
     firebase.database().ref().set({
-  		address:address,
-  		cityState:cityState,
-  		numGuests:numGuests,
-  		times:times,
-  		water:water,
-  		poolTemp:poolTemp,
-  		cost:cost,
-  		comments:comments
-  		})
+      address:address,
+      cityState:cityState,
+      numGuests:numGuests,
+      times:times,
+      water:water,
+      poolTemp:poolTemp,
+      cost:cost,
+      comments:comments
+      })
 
-  	return false;
+    return false;
 
 });
 
