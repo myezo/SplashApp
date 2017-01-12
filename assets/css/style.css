@@ -33,6 +33,10 @@
 	margin-top: 30px;
 }
 
+.location {
+      font-size: 28px;
+}
+
 .weather {
 	font-size: 33px;
 }
@@ -41,7 +45,6 @@
 	font-size: 20px;
 }
 
-<<<<<<< HEAD
 .form-horizontal{
       margin: 0 auto;
       width: 80%;
@@ -60,6 +63,11 @@
 #comments{
       width: 600px;
       height: 200px;
+}
+
+img{
+      width: 100px;
+      height: 100px;
 }
 
 #submit{

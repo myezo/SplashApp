@@ -4,6 +4,9 @@ var temperature;
 var location;
 var weather;
 var icon;
+//var longitude;
+//var latitude;
+//var myLatLng;
 
 
 var config = {
@@ -17,27 +20,43 @@ var config = {
   firebase.initializeApp(config);
 
 
+console.log("testing");
+
+
 function initMap() {
-  //300 atrium drive 
-  //Somerset, NJ
-  var myLatLng = {lat: 40.5354340, lng: -74.5212870};
+ var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address= "+ city + ", "+ state +"&key=AIzaSyBPidPaBR5dgPFkxsPfkRvkLE1fFp48FX8";
+ 
+ // var queryURL = "https://maps.googleapis.com/maps/api/geocode/json?address="+ address + " , "+ city +", "+ state +"&key=AIzaSyBPidPaBR5dgPFkxsPfkRvkLE1fFp48FX8";
+  $.ajax({
+        url: queryURL,
+        method: "GET"
+      })
+    .done(function(response) {
+      console.log(response);
+      var myLatLng = {
+          lat : response.results[0].geometry.location.lat,
+          lng : response.results[0].geometry.location.lng
+       };
+      var map = new google.maps.Map(document.getElementById('map'), {
+     zoom: 15,
+     center: myLatLng
+   });
 
-  var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
-    center: myLatLng
-  });
+       var marker = new google.maps.Marker({
+         position: myLatLng,
+         map: map,
+         title: 'Hello World!'
+       });
+      
+    });
 
-  var marker = new google.maps.Marker({
-    position: myLatLng,
-    map: map,
-    icon: 'pool-icon.png',
-    title: 'Hello World!'
-  });
-}
+  }
+
 
 
 function getWeather(){
   //var apiKey = "11e28d64554d3afa";
+
   var queryURL = "http://api.wunderground.com/api/11e28d64554d3afa/conditions/q/" + state + "/" +city+".json";
   $.ajax({
         url: queryURL,
@@ -54,7 +73,8 @@ function getWeather(){
       console.log(temperature);
      
       //$('#location').text(location);
-      $('#icon').text(icon);
+      $('#icon').html("<img src=\""+icon+"\">");
+      $('#location').text(city + ", " + state);
       $('#weather').text(weather);
       $('#temperature').text("Temperature: " + temperature);
 
@@ -65,6 +85,7 @@ function getWeather(){
 function getMap() {
   var div = $('<div>').attr('id', 'map');
   $('body').append(div);
+  // debugger;
   initMap();
 }
 
@@ -90,12 +111,15 @@ function showResult(result) {
     console.log(result.geometry.location.lng());
 }
 
+
 $("#search").on("click", function() {
   state = $("#state").val().trim();
   city = $("#city").val().trim();
   console.log(state);
   console.log(city);
+  // debugger;
   getMap();
+  // debugger;
   getWeather();
   $("#query-result").removeClass("hidden");
 
@@ -107,18 +131,18 @@ $("#search").on("click", function() {
 $('#submit').on("click", function(){
   
   var address;
-  var cityState;
+  var city;
+  var state;
   var numGuests;
   var times;
   var water;
   var poolTemp;
   var cost;
   var comments;
-  var latitude;
-  var longitude;
 
   address = $("#address").val().trim();
-    cityState = $("#cityState").val().trim();
+    city = $("#city").val().trim();
+    state = $("#state").val().trim();
     numGuests = $("#numGuests").val().trim();
     times = $("#poolTime").val().trim();
     water = $("#waterType").val().trim();
@@ -126,10 +150,11 @@ $('#submit').on("click", function(){
     cost = $("#cost").val().trim();
     comments = $("#comments").val().trim();
 
-    getLatitudeLongitude(address);
+    //getLatitudeLongitude(address);
 
     console.log(address);
-    console.log(cityState);
+    console.log(city);
+    console.log(state);
     console.log(numGuests);
     console.log(times);
     console.log(water);
@@ -139,7 +164,8 @@ $('#submit').on("click", function(){
 
     firebase.database().ref().set({
       address:address,
-      cityState:cityState,
+      city:city,
+      state:state,
       numGuests:numGuests,
       times:times,
       water:water,
