@@ -4,9 +4,6 @@ var temperature;
 var location;
 var weather;
 var icon;
-//var longitude;
-//var latitude;
-//var myLatLng;
 
 
 var config = {
@@ -18,9 +15,7 @@ var config = {
   };
 
   firebase.initializeApp(config);
-
-
-console.log("testing");
+  var dataRef = firebase.database();
 
 
 function initMap() {
@@ -47,9 +42,7 @@ function initMap() {
          map: map,
          title: 'Hello World!'
        });
-      
     });
-
   }
 
 
@@ -66,18 +59,18 @@ function getWeather(){
       console.log(response);
 
       icon = response.current_observation.icon_url;
-      temperature = response.current_observation.dewpoint_string;
+      temperature = response.current_observation.dewpoint_f;
       weather = response.current_observation.weather;
       console.log(weather);
       
       console.log(temperature);
      
       //$('#location').text(location);
+      //$("#temperature").attr('value', temperature+String.fromCharCode(176))
+      $('#temperature').html(temperature + "&#8457;");
       $('#icon').html("<img src=\""+icon+"\">");
       $('#location').text(city + ", " + state);
       $('#weather').text(weather);
-      $('#temperature').text("Temperature: " + temperature);
-
   }); 
 }
 
@@ -87,28 +80,6 @@ function getMap() {
   $('body').append(div);
   // debugger;
   initMap();
-}
-
-
-function getLatitudeLongitude(callback, address) {
-    // If adress is not supplied, use default value 'Ferrol, Galicia, Spain'
-    address = address || 'Miami, Florida';
-    // Initialize the Geocoder
-    geocoder = new google.maps.Geocoder();
-    if (geocoder) {
-        geocoder.geocode({
-            'address': address
-        }, function (results, status) {
-            if (status == google.maps.GeocoderStatus.OK) {
-                callback(results[0]);
-            }
-        });
-    }
-}
-
-function showResult(result) {
-    console.log(result.geometry.location.lat());
-    console.log(result.geometry.location.lng());
 }
 
 
@@ -127,9 +98,9 @@ $("#search").on("click", function() {
 });
 
 
-
 $('#submit').on("click", function(){
   
+  var fullName;
   var address;
   var city;
   var state;
@@ -140,7 +111,8 @@ $('#submit').on("click", function(){
   var cost;
   var comments;
 
-  address = $("#address").val().trim();
+    fullName = $("#fullName").val().trim();
+    address = $("#address").val().trim();
     city = $("#city").val().trim();
     state = $("#state").val().trim();
     numGuests = $("#numGuests").val().trim();
@@ -150,19 +122,9 @@ $('#submit').on("click", function(){
     cost = $("#cost").val().trim();
     comments = $("#comments").val().trim();
 
-    //getLatitudeLongitude(address);
 
-    console.log(address);
-    console.log(city);
-    console.log(state);
-    console.log(numGuests);
-    console.log(times);
-    console.log(water);
-    console.log(poolTemp);
-    console.log(cost);
-    console.log(comments);
-
-    firebase.database().ref().set({
+    dataRef.ref().push({
+      fullName:fullName,
       address:address,
       city:city,
       state:state,
@@ -172,7 +134,7 @@ $('#submit').on("click", function(){
       poolTemp:poolTemp,
       cost:cost,
       comments:comments
-      })
+      });
 
     return false;
 

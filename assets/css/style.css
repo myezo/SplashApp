@@ -1,3 +1,6 @@
+html, body {
+  height: 100%;
+}
 
 .navbar {
       padding-top: 15px;
@@ -33,16 +36,50 @@
 	margin-top: 30px;
 }
 
-.location {
-      font-size: 28px;
+#weather-div{
+      margin: auto;
+      width: 350px;
+      height: 160px;
+      border: 1px solid black;
+      border-radius: 20px;
+      box-shadow: 10px 10px 50px #888888;
+      overflow: hidden;
+      text-align:center;
+      font-family: "Mono";
 }
 
-.weather {
-	font-size: 33px;
+#temp-loc{
+      font-size: 22px;
+      font-weight: bold;
+      background-color: #0E7EFD;
+      color: white;
+      float: left;
+      padding-left: 40px;
+      padding-right: 40px;
+      padding-top: 51px;
+      padding-bottom: 51px;
 }
 
 .temperature {
-	font-size: 20px;
+      text-align: center;
+}
+
+.location::first-letter{
+      text-transform: uppercase;
+}
+
+#icon-weather{
+      text-align: center;
+}
+
+#weather{
+      padding-left: 10px;
+      font-size: 20px;
+}
+
+img{
+      width: 90px;
+      height: 90px;
 }
 
 .form-horizontal{
@@ -65,17 +102,23 @@
       height: 200px;
 }
 
-img{
-      width: 100px;
-      height: 100px;
+#search {
+      width: 90px;
+      height: 39px;
 }
 
 #submit{
       width: 90px;
       height: 40px;
-=======
-#map {
-  height: 500px;
-  width: 500px;
->>>>>>> 490a3053faf36d786afa1c1a19134067bf9376b7
+}
+
+footer{
+      position: relative;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      padding: 20px;
+      background-color: #efefef;
+      text-align: center;
+      font-weight: bold;
 }

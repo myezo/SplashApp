@@ -28,12 +28,12 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Splash</a>
+      <a class="navbar-brand" href="index.html">Splash</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
+      	<li><a href="index.html">Find A Pool</a></li>
         <li><a href="host.html">Host Your Pool</a></li>
-        <li><a href="index.html">Find A Pool</a></li>
         <li><a href="#">About Us</a></li>
       </ul>
     </div>
@@ -114,21 +114,35 @@
   <div class="row">
 	<div class="weatherApp">
 		<div class="col-sm-4">
-			<div id="icon"></div>
-			<div class="location"><span id="location"></span></div>
-		    <div class="weather"><span id="weather"></span></div>
-		    <div class="temperature"><span id="temperature"></span></div> 
+			<div id="weather-div">
+				<div id="temp-loc">
+					<div class="temperature"><span id="temperature"></span></div>
+					<div class="location"><span id="location"></span></div>
+				</div>
+				<div id="icon-weather">
+					<div id="icon"></div>
+				    <div class="weather"><span id="weather"></span></div>
+			    </div>
+		    </div> 
 		</div>
 	</div>
 
     <div class="col-sm-8">
-    	<div id="map" style="width:100%;height:500px">
+    	<div id="map" style="width:100%;height:500px;box-shadow: 10px 10px 50px #888888;">
     	</div>
         
     </div>
 
   </div> 
 </div>
+
+
+<footer>
+  <div class="container text-center">
+    <p class="smallFooter">Copywrite &copy; Splash 2017</p>
+  </div> 
+</footer>
+
 
 <script src="https://code.jquery.com/jquery.js"></script>
 <script async defer
