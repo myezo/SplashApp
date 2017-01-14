@@ -38,7 +38,7 @@ html, body {
 
 #weather-div{
       margin: auto;
-      width: 350px;
+      width: 370px;
       height: 160px;
       border: 1px solid black;
       border-radius: 20px;
@@ -54,8 +54,8 @@ html, body {
       background-color: #0E7EFD;
       color: white;
       float: left;
-      padding-left: 40px;
-      padding-right: 40px;
+      padding-left: 25px;
+      padding-right: 25px;
       padding-top: 51px;
       padding-bottom: 51px;
 }
@@ -70,11 +70,15 @@ html, body {
 
 #icon-weather{
       text-align: center;
+      padding-left: 40px;
+      padding-right: 30px;
 }
 
 #weather{
       padding-left: 10px;
       font-size: 20px;
+      font-weight: bold;
+      text-align: center;
 }
 
 img{
