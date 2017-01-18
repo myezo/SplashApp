@@ -1,153 +1,141 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Splash - Find Your Pool</title>
 
-  <title>Splash - Find Your Pool</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
 
-  <meta charset="utf-8">
+    <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
+    <link rel="stylesheet" href="assets/css/style.css">
 
-  <script src="https://code.jquery.com/jquery.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/3.6.4/firebase.js"></script>
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-
-<nav class="navbar navbar-default">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="index.html">Splash</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-      	<li><a href="index.html">Find A Pool</a></li>
-        <li><a href="host.html">Host Your Pool</a></li>
-        <li><a href="#">About Us</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+ </head>
+ <body>
+ 	<nav class="navbar navbar-default">
+ 	  <div class="container">
+ 	    <div class="navbar-header">
+ 	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+ 	        <span class="icon-bar"></span>
+ 	        <span class="icon-bar"></span>
+ 	        <span class="icon-bar"></span>                        
+ 	      </button>
+ 	      <a class="navbar-brand" href="index.html">Splash</a>
+ 	    </div>
+ 	    <div class="collapse navbar-collapse" id="myNavbar">
+ 	      <ul class="nav navbar-nav navbar-right">
+ 	      	<li><a href="index.html">Find A Pool</a></li>
+ 	        <li><a href="host.html">Host Your Pool</a></li>
+ 	        <li><a href="#">About Us</a></li>
+ 	      </ul>
+ 	    </div>
+ 	  </div>
+ 	</nav>
 
 
-<div class="container-fluid bg-1 text-center" id="main-section">
-	<form class="form-inline">
-	  <div class="form-group">
-	    <label for="city" class="text">Enter City:</label>
-	    <input type="text" class="form-control" id="city">
-	  </div>
-	  <div class="form-group">
-	    <label for="pwd" class="text">State:</label>
-	    <select class="form-control" id="state" name="state">
-				<option value="">N/A</option>
-				<option value="AK">Alaska</option>
-				<option value="AL">Alabama</option>
-				<option value="AR">Arkansas</option>
-				<option value="AZ">Arizona</option>
-				<option value="CA">California</option>
-				<option value="CO">Colorado</option>
-				<option value="CT">Connecticut</option>
-				<option value="DC">District of Columbia</option>
-				<option value="DE">Delaware</option>
-				<option value="FL">Florida</option>
-				<option value="GA">Georgia</option>
-				<option value="HI">Hawaii</option>
-				<option value="IA">Iowa</option>
-				<option value="ID">Idaho</option>
-				<option value="IL">Illinois</option>
-				<option value="IN">Indiana</option>
-				<option value="KS">Kansas</option>
-				<option value="KY">Kentucky</option>
-				<option value="LA">Louisiana</option>
-				<option value="MA">Massachusetts</option>
-				<option value="MD">Maryland</option>
-				<option value="ME">Maine</option>
-				<option value="MI">Michigan</option>
-				<option value="MN">Minnesota</option>
-				<option value="MO">Missouri</option>
-				<option value="MS">Mississippi</option>
-				<option value="MT">Montana</option>
-				<option value="NC">North Carolina</option>
-				<option value="ND">North Dakota</option>
-				<option value="NE">Nebraska</option>
-				<option value="NH">New Hampshire</option>
-				<option value="NJ">New Jersey</option>
-				<option value="NM">New Mexico</option>
-				<option value="NV">Nevada</option>
-				<option value="NY">New York</option>
-				<option value="OH">Ohio</option>
-				<option value="OK">Oklahoma</option>
-				<option value="OR">Oregon</option>
-				<option value="PA">Pennsylvania</option>
-				<option value="PR">Puerto Rico</option>
-				<option value="RI">Rhode Island</option>
-				<option value="SC">South Carolina</option>
-				<option value="SD">South Dakota</option>
-				<option value="TN">Tennessee</option>
-				<option value="TX">Texas</option>
-				<option value="UT">Utah</option>
-				<option value="VA">Virginia</option>
-				<option value="VT">Vermont</option>
-				<option value="WA">Washington</option>
-				<option value="WI">Wisconsin</option>
-				<option value="WV">West Virginia</option>
-				<option value="WY">Wyoming</option>
-			</select>
-	  </div>
-	  <button class="btn btn-primary" id="search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
-	</form>
-</div>
+ 	<div class="container-fluid bg-1 text-center" id="main-section">
+ 		<form class="form-inline">
+ 		  <div class="form-group">
+ 		    <label for="city" class="text">Enter City:</label>
+ 		    <input type="text" class="form-control" id="city">
+ 		  </div>
+ 		  <div class="form-group">
+ 		    <label for="pwd" class="text">State:</label>
+ 		    <select class="form-control" id="state" name="state">
+ 					<option value="">N/A</option>
+ 					<option value="AK">Alaska</option>
+ 					<option value="AL">Alabama</option>
+ 					<option value="AR">Arkansas</option>
+ 					<option value="AZ">Arizona</option>
+ 					<option value="CA">California</option>
+ 					<option value="CO">Colorado</option>
+ 					<option value="CT">Connecticut</option>
+ 					<option value="DC">District of Columbia</option>
+ 					<option value="DE">Delaware</option>
+ 					<option value="FL">Florida</option>
+ 					<option value="GA">Georgia</option>
+ 					<option value="HI">Hawaii</option>
+ 					<option value="IA">Iowa</option>
+ 					<option value="ID">Idaho</option>
+ 					<option value="IL">Illinois</option>
+ 					<option value="IN">Indiana</option>
+ 					<option value="KS">Kansas</option>
+ 					<option value="KY">Kentucky</option>
+ 					<option value="LA">Louisiana</option>
+ 					<option value="MA">Massachusetts</option>
+ 					<option value="MD">Maryland</option>
+ 					<option value="ME">Maine</option>
+ 					<option value="MI">Michigan</option>
+ 					<option value="MN">Minnesota</option>
+ 					<option value="MO">Missouri</option>
+ 					<option value="MS">Mississippi</option>
+ 					<option value="MT">Montana</option>
+ 					<option value="NC">North Carolina</option>
+ 					<option value="ND">North Dakota</option>
+ 					<option value="NE">Nebraska</option>
+ 					<option value="NH">New Hampshire</option>
+ 					<option value="NJ">New Jersey</option>
+ 					<option value="NM">New Mexico</option>
+ 					<option value="NV">Nevada</option>
+ 					<option value="NY">New York</option>
+ 					<option value="OH">Ohio</option>
+ 					<option value="OK">Oklahoma</option>
+ 					<option value="OR">Oregon</option>
+ 					<option value="PA">Pennsylvania</option>
+ 					<option value="PR">Puerto Rico</option>
+ 					<option value="RI">Rhode Island</option>
+ 					<option value="SC">South Carolina</option>
+ 					<option value="SD">South Dakota</option>
+ 					<option value="TN">Tennessee</option>
+ 					<option value="TX">Texas</option>
+ 					<option value="UT">Utah</option>
+ 					<option value="VA">Virginia</option>
+ 					<option value="VT">Vermont</option>
+ 					<option value="WA">Washington</option>
+ 					<option value="WI">Wisconsin</option>
+ 					<option value="WV">West Virginia</option>
+ 					<option value="WY">Wyoming</option>
+ 				</select>
+ 		  </div>
+ 		  <button class="btn btn-primary" id="search" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+ 		</form>
+ 	</div>
 
-<div id="map" style="width:100%;height:500px;box-shadow: 10px 10px 50px #888888;">
-</div>
-
-<div id="query-result" class="container hidden">
-  <div class="row">
-	<div class="weatherApp">
-		<div class="col-sm-4">
-			<div id="weather-div">
-				<div id="temp-loc">
-					<div class="temperature"><span id="temperature"></span></div>
-					<div class="location"><span id="location"></span></div>
-				</div>
-				<div id="icon-weather">
-					<div id="icon"></div>
-				    <div class="weather"><span id="weather"></span></div>
-			    </div>
-		    </div> 
-		</div>
-	</div>
+ 	<div id="query-result" class="container hidden">
+ 	  <div class="row">
+ 		<div class="weatherApp">
+ 			<div class="col-sm-4">
+ 				<div id="weather-div">
+ 					<div id="temp-loc">
+ 						<div class="temperature"><span id="temperature"></span></div>
+ 						<div class="location"><span id="location"></span></div>
+ 					</div>
+ 					<div id="icon-weather">
+ 						<div id="icon"></div>
+ 					    <div class="weather"><span id="weather"></span></div>
+ 				    </div>
+ 			    </div> 
+ 			</div>
+ 		</div>
 
 
 
-    <div class="col-sm-8">
-    	
-    	
-        
-    </div>
+ 	    <div class="col-sm-8">
+ 	    	<div id="map" style="width:100%;height:500px;box-shadow: 10px 10px 50px #888888;">
+ 	    	</div>
+ 	    </div>
 
-  </div> 
-</div>
+ 	  </div> 
+ 	</div>
+ 	<script async defer
+ 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZmIUkoRwVEPDfwxzned45vOv19-y3jDM">
+ 	</script>
 
+ 	<script src="assets/javascript/code.js"></script>
 
+ </body>
 
-<script src="https://code.jquery.com/jquery.js"></script>
-<script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBZmIUkoRwVEPDfwxzned45vOv19-y3jDM&callback=mapsReady">
-</script>
-<script src="assets/javascript/code.js"></script>
-
-</body>
-
-</html>
+ </html>
