@@ -54,7 +54,7 @@ var config = {
 
 
     function getWeather(){
-      var queryURL = "http://api.wunderground.com/api/11e28d64554d3afa/conditions/q/" + state + "/" +city+".json";
+      var queryURL = "https://api.wunderground.com/api/11e28d64554d3afa/conditions/q/" + state + "/" +city+".json";
       $.ajax({
             url: queryURL,
             method: "GET"

@@ -1,3 +1,8 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
 .navbar {
       padding-top: 15px;
       padding-bottom: 15px;
@@ -9,9 +14,14 @@
       font-weight: bold;
 }
 
-#map {
-    height: 100%;
+#wrapper {
+  min-height: 100%;
+
+  /* Equal to height of footer */
+  /* But also accounting for potential margin-bottom of last child */
+  margin-bottom: -50px;
 }
+
 
 .text {
       color: black;
@@ -118,12 +128,13 @@ img{
 }
 
 footer{
-      position: relative;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      padding: 20px;
+      margin-top: 30px;
       background-color: #efefef;
       text-align: center;
       font-weight: bold;
+      height: 50px;
+}
+
+.smallFooter{
+  padding-top: 20px;
 }
