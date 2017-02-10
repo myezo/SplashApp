@@ -7,16 +7,18 @@ that want to rent out their pool.
 
 
 # Technologies Used
-
-HTML
-CSS
-Javascript
-JQuery
-AJAX
-Firebase
-Bootstrap
+<ul>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>Javascript</li>
+  <li>JQuery</li>
+  <li>AJAX</li>
+  <li>Firebase</li>
+  <li>Bootstrap</li>
+</ul>
 
 # API's
-
-Google Maps
-Weather Underground
+<ul>
+<li>Google Maps</li>
+<li>Weather Underground</li>
+</ul>
